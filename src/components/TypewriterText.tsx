@@ -26,21 +26,15 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   const lastTextRef = useRef<string | null>(null);
 
   useEffect(() => {
-    console.log('TypewriterText - text prop:', text ? text.substring(0, 50) + '...' : 'NO TEXT');
-    console.log('TypewriterText - text length:', text?.length || 0);
-    
     if (!text) {
-      console.log('TypewriterText - No text provided, returning');
       return;
     }
 
     // If we're already typing the exact same text, don't restart
     if (typingRef.current && lastTextRef.current === text) {
-      console.log('TypewriterText - Already typing same text; skipping restart');
       return;
     }
 
-    console.log('TypewriterText - Starting animation');
     typingRef.current = true;
     lastTextRef.current = text;
     setIsTyping(true);
@@ -50,11 +44,9 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
     const typeInterval = setInterval(() => {
       if (i < text.length) {
         const newText = text.substring(0, i + 1);
-        console.log(`TypewriterText - Setting text [${i}]:`, newText.substring(0, 20) + '...');
         setDisplayText(newText);
         i++;
       } else {
-        console.log('TypewriterText - Animation complete');
         setIsTyping(false);
         typingRef.current = false;
         clearInterval(typeInterval);
@@ -70,8 +62,6 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
       typingRef.current = false;
     };
   }, [text, speed]);
-
-  console.log('TypewriterText - Rendering with displayText:', displayText.length, displayText.substring(0, 30));
 
   return (
     <div id="story-text" style={{ whiteSpace: 'pre-wrap', lineHeight: 1.8 }}>

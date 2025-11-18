@@ -359,15 +359,7 @@ const ERROR_MESSAGES = {
       <div className="hero">
         <h1>{getUIText('title')}</h1>
         <p className="tagline">{getUIText('tagline')}</p>
-        <div className="hero-description">
-          <p>{getUIText('description')}</p>
-          <div className="magic-icons" aria-hidden="true">
-            <span>🦄</span>
-            <span>🌟</span>
-            <span>🎭</span>
-            <span>🌈</span>
-          </div>
-        </div>
+        <p className="hero-description">{getUIText('description')}</p>
       </div>
 
       <div className="container">

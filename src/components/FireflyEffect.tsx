@@ -4,7 +4,7 @@ interface FireflyEffectProps {
   count?: number;
 }
 
-export const FireflyEffect: React.FC<FireflyEffectProps> = ({ count = 30 }) => {
+export const FireflyEffect: React.FC<FireflyEffectProps> = ({ count = 15 }) => {
   useEffect(() => {
     const createFireflies = () => {
       const existingFirefly = document.querySelector('.firefly');

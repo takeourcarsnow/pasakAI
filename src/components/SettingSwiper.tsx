@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
 
@@ -89,19 +86,11 @@ export const SettingSwiper: React.FC<SettingSwiperProps> = ({
       <h2>{title}</h2>
       <div className={className}>
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[]}
           slidesPerView={1}
           spaceBetween={20}
           centeredSlides={true}
           initialSlide={initialSlide}
-          navigation={{
-            nextEl: `.${className} .swiper-button-next`,
-            prevEl: `.${className} .swiper-button-prev`,
-          }}
-          pagination={{
-            el: `.${className} .swiper-pagination`,
-            clickable: true,
-          }}
           breakpoints={{
             640: { slidesPerView: 2 },
             968: { slidesPerView: 3 }
@@ -116,9 +105,6 @@ export const SettingSwiper: React.FC<SettingSwiperProps> = ({
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="swiper-pagination"></div>
-        <div className="swiper-button-prev" aria-label="Previous slide"></div>
-        <div className="swiper-button-next" aria-label="Next slide"></div>
       </div>
     </div>
   );

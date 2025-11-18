@@ -29,7 +29,7 @@ export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible }) =
       const sparklesContainer = document.querySelector('.loading-sparkles');
       if (sparklesContainer) {
         sparklesContainer.innerHTML = '';
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
           const sparkle = document.createElement('div');
           sparkle.className = 'sparkle';
           sparkle.innerHTML = '✨';
@@ -42,7 +42,7 @@ export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible }) =
       intervalRef.current = setInterval(() => {
         setCurrentMessage(LOADING_MESSAGES[messageIndex]);
         messageIndex = (messageIndex + 1) % LOADING_MESSAGES.length;
-      }, 2000);
+      }, 3000);
     } else {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
