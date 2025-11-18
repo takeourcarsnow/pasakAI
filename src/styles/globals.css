@@ -248,9 +248,9 @@ body.light-theme {
 .share-btn {
     border: none;
     border-radius: 12px;
-    padding: 1rem;
-    width: 100%;
-    max-width: 300px;
+    padding: 0.75rem;
+    width: 50px;
+    height: 50px;
     font-size: 1.1rem;
     font-weight: bold;
     color: white;
@@ -258,9 +258,8 @@ body.light-theme {
     font-family: var(--font);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    min-width: 140px;
     justify-content: center;
+    transition: all 0.3s var(--animation-timing);
 }
 
 .share-btn.copy {
@@ -273,6 +272,30 @@ body.light-theme {
 
 .share-btn.facebook {
     background: #4267B2;
+}
+
+.share-btn.copy.copy-success {
+    background: #27ae60 !important;
+    animation: copySuccess 0.3s ease-in-out;
+}
+
+@keyframes copySuccess {
+    0% { transform: scale(1) var(--gpu-transform); }
+    50% { transform: scale(1.1) var(--gpu-transform); }
+    100% { transform: scale(1) var(--gpu-transform); }
+}
+
+.share-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.share-icon svg {
+    width: 24px;
+    height: 24px;
 }
 
 .story-container {
@@ -633,9 +656,9 @@ footer {
     }
 
     .share-btn {
-        width: 100%;
-        min-width: unset;
-        padding: 0.8rem;
+        width: 50px;
+        height: 50px;
+        padding: 0.75rem;
     }
 
     .container {
