@@ -9,6 +9,7 @@ import { TypewriterText } from '@/components/TypewriterText';
 import { ShareButtons } from '@/components/ShareButtons';
 import { STORY_OPTIONS, LANGUAGES } from '@/lib/constants';
 import type { StoryRequest, StoryResponse } from '@/types';
+import type { GetServerSideProps } from 'next';
 
 interface StorySelections {
   language: string;
@@ -19,9 +20,9 @@ interface StorySelections {
   ageGroup: string;
 }
 
-export default function Home() {
+export default function Home({ initialLanguage }: { initialLanguage: string }) {
   const [selections, setSelections] = useState<StorySelections>({
-    language: 'lt',
+    language: initialLanguage,
     time: '',
     place: '',
     characters: '',
@@ -472,3 +473,28 @@ const ERROR_MESSAGES = {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { req } = context;
+  const forwarded = req.headers['x-forwarded-for'];
+  const ip = Array.isArray(forwarded) ? forwarded[0] : forwarded?.split(',')[0] || (req as any).connection?.remoteAddress || '';
+  let language = 'en'; // default
+  if (ip && ip !== '127.0.0.1' && ip !== '::1') {
+    try {
+      const response = await fetch(`http://ip-api.com/json/${ip}`);
+      if (response.ok) {
+        const data = await response.json();
+        if (data.status === 'success' && data.countryCode === 'LT') {
+          language = 'lt';
+        }
+      }
+    } catch (error) {
+      console.error('Geolocation error:', error);
+    }
+  }
+  return {
+    props: {
+      initialLanguage: language,
+    },
+  };
+};
