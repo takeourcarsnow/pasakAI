@@ -425,7 +425,7 @@ const ERROR_MESSAGES = {
         </div>
 
         <div className={`story-container ${showStory || isLoading ? 'show' : ''}`}>
-          <LoadingAnimation visible={isLoading} />
+          <LoadingAnimation visible={isLoading} language={selections.language} />
 
           {showStory && (
             <div className="story-content" style={{ display: 'block' }}>

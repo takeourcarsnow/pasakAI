@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
+import { LOADING_TRANSLATIONS } from '@/lib/constants';
 
 interface LoadingAnimationProps {
   visible: boolean;
+  language: string;
 }
 
 const LOADING_MESSAGES = [
@@ -17,8 +19,9 @@ const LOADING_MESSAGES = [
   "Baigiami paskutiniai potėpiai... 🖌️"
 ];
 
-export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible }) => {
-  const [currentMessage, setCurrentMessage] = useState(LOADING_MESSAGES[0]);
+export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible, language }) => {
+  const loadingData = LOADING_TRANSLATIONS[language as keyof typeof LOADING_TRANSLATIONS] || LOADING_TRANSLATIONS.en;
+  const [currentMessage, setCurrentMessage] = useState(loadingData.loadingMessages[0]);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   React.useEffect(() => {
@@ -40,8 +43,8 @@ export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible }) =
       }
 
       intervalRef.current = setInterval(() => {
-        setCurrentMessage(LOADING_MESSAGES[messageIndex]);
-        messageIndex = (messageIndex + 1) % LOADING_MESSAGES.length;
+        setCurrentMessage(loadingData.loadingMessages[messageIndex]);
+        messageIndex = (messageIndex + 1) % loadingData.loadingMessages.length;
       }, 3000);
     } else {
       if (intervalRef.current) {
@@ -63,7 +66,7 @@ export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible }) =
 
   return (
     <div className={`loading-animation ${visible ? 'visible' : ''}`}>
-      <div className="loading-text">Kuriama pasaka...</div>
+      <div className="loading-text">{loadingData.creatingStory}</div>
       <div className="loading-dots">
         <div className="loading-dot"></div>
         <div className="loading-dot"></div>

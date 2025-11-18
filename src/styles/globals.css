@@ -55,6 +55,9 @@ body.light-theme {
     transition: transform 0.3s var(--animation-timing);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-switch button:hover {
@@ -67,6 +70,11 @@ body.light-theme {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .day-icon svg {
@@ -79,12 +87,12 @@ body.light-theme {
 
 .light-theme .day-icon,
 .dark-theme .night-icon {
-    display: none;
+    opacity: 0;
 }
 
 .light-theme .night-icon,
 .dark-theme .day-icon {
-    display: inline;
+    opacity: 1;
 }
 
 .social-links,
@@ -236,7 +244,7 @@ body.light-theme {
 
 /* Active/selected effects */
 .swiper-slide-active .choice-card .emoji svg {
-    animation: bounce 0.6s ease;
+    animation: enhancedBounce 1s ease-in-out;
     filter: brightness(1.3) drop-shadow(0 0 15px currentColor);
 }
 
@@ -246,15 +254,12 @@ body.light-theme {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+@keyframes enhancedBounce {
+    0%, 100% {
         transform: translateY(0);
     }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
+    50% {
+        transform: translateY(-8px);
     }
 }
 

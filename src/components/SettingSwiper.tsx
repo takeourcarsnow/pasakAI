@@ -9,11 +9,12 @@ import { RiWaterPercentLine, RiVipDiamondLine, RiHeartLine, RiVipCrownLine, RiTe
 interface ChoiceCardProps {
   icon: string;
   text: string;
+  color?: string;
   onClick?: () => void;
 }
 
-const ChoiceCard: React.FC<ChoiceCardProps> = ({ icon, text, onClick }) => {
-  let IconComponent = Icons[icon as keyof typeof Icons] as React.ComponentType<{ size?: number }>;
+const ChoiceCard: React.FC<ChoiceCardProps> = ({ icon, text, color, onClick }) => {
+  let IconComponent = Icons[icon as keyof typeof Icons] as React.ComponentType<{ size?: number; color?: string }>;
   if (icon === 'RiWaterPercentLine') {
     IconComponent = RiWaterPercentLine;
   } else if (icon === 'RiVipDiamondLine') {
@@ -28,7 +29,7 @@ const ChoiceCard: React.FC<ChoiceCardProps> = ({ icon, text, onClick }) => {
   return (
     <div className="choice-card" onClick={onClick}>
       <div className="emoji">
-        {icon.startsWith('http') ? <Image src={icon} alt={text} width={50} height={50} /> : IconComponent ? <IconComponent size={50} /> : icon}
+        {icon.startsWith('http') ? <Image src={icon} alt={text} width={50} height={50} /> : IconComponent ? <IconComponent size={50} color={color} /> : icon}
       </div>
       <span>{text}</span>
     </div>
@@ -37,7 +38,7 @@ const ChoiceCard: React.FC<ChoiceCardProps> = ({ icon, text, onClick }) => {
 
 interface SettingSwiperProps {
   title: string;
-  options: Array<{ value: string; icon: string; text: string }>;
+  options: Array<{ value: string; icon: string; text: string; color?: string }>;
   onSelectionChange: (value: string) => void;
   className: string;
 }
@@ -117,7 +118,7 @@ export const SettingSwiper: React.FC<SettingSwiperProps> = ({
         >
           {options.map((option, index) => (
             <SwiperSlide key={index} data-value={option.value}>
-              <ChoiceCard icon={option.icon} text={option.text} onClick={() => handleCardClick(index)} />
+              <ChoiceCard icon={option.icon} text={option.text} color={option.color} onClick={() => handleCardClick(index)} />
             </SwiperSlide>
           ))}
         </Swiper>

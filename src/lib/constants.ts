@@ -7,55 +7,55 @@ export const LANGUAGES = [
   { value: 'it', icon: 'https://flagcdn.com/w40/it.png', text: 'Italiano' }
 ];
 
-// Base structure with keys and icons
+// Base structure with keys, icons, and colors
 const STORY_BASE = {
   time: [
-    { key: 'once_upon_a_time', icon: 'RiScrollToBottomLine' },
-    { key: 'future', icon: 'RiRocketLine' },
-    { key: 'today', icon: 'RiSmartphoneLine' },
-    { key: 'winter', icon: 'RiSnowyLine' },
-    { key: 'summer', icon: 'RiSunLine' },
-    { key: 'mysterious_night', icon: 'RiMoonLine' },
-    { key: 'hundred_years_ago', icon: 'RiTimeLine' },
-    { key: 'dream_kingdom', icon: 'RiSparklingLine' },
-    { key: 'sunny_morning', icon: 'RiSunLine' },
-    { key: 'autumn_afternoon', icon: 'RiLeafLine' },
-    { key: 'moonlight', icon: 'RiMoonLine' },
-    { key: 'christmas', icon: 'RiTreeLine' }
+    { key: 'once_upon_a_time', icon: 'RiScrollToBottomLine', color: '#8B4513' },
+    { key: 'future', icon: 'RiRocketLine', color: '#FF4500' },
+    { key: 'today', icon: 'RiCalendarLine', color: '#1E90FF' },
+    { key: 'winter', icon: 'RiSnowyLine', color: '#87CEEB' },
+    { key: 'summer', icon: 'RiSunLine', color: '#FFD700' },
+    { key: 'mysterious_night', icon: 'RiMoonLine', color: '#708090' },
+    { key: 'hundred_years_ago', icon: 'RiTimeLine', color: '#696969' },
+    { key: 'dream_kingdom', icon: 'RiSparklingLine', color: '#FFD700' },
+    { key: 'sunny_morning', icon: 'RiSunLine', color: '#FFD700' },
+    { key: 'autumn_afternoon', icon: 'RiLeafLine', color: '#FF8C00' },
+    { key: 'moonlight', icon: 'RiMoonLine', color: '#708090' },
+    { key: 'christmas', icon: 'RiTreeLine', color: '#228B22' }
   ],
   place: [
-    { key: 'magical_forest', icon: 'RiTreeLine' },
-    { key: 'castle', icon: 'RiBuildingLine' },
-    { key: 'space', icon: 'RiStarLine' },
-    { key: 'underwater', icon: 'RiWaterPercentLine' },
-    { key: 'cloud_kingdom', icon: 'RiCloudLine' },
-    { key: 'candy_land', icon: 'RiCakeLine' },
-    { key: 'underground_maze', icon: 'RiKeyLine' },
-    { key: 'crystal_cave', icon: 'RiVipDiamondLine' },
-    { key: 'rainbow_bridge', icon: 'RiRainbowLine' },
-    { key: 'chocolate_factory', icon: 'RiBuilding2Line' }
+    { key: 'magical_forest', icon: 'RiTreeLine', color: '#228B22' },
+    { key: 'castle', icon: 'RiBuildingLine', color: '#696969' },
+    { key: 'space', icon: 'RiStarLine', color: '#FFD700' },
+    { key: 'underwater', icon: 'RiWaterPercentLine', color: '#1E90FF' },
+    { key: 'cloud_kingdom', icon: 'RiCloudLine', color: '#FFFFFF' },
+    { key: 'candy_land', icon: 'RiCakeLine', color: '#FF69B4' },
+    { key: 'underground_maze', icon: 'RiKeyLine', color: '#FFD700' },
+    { key: 'crystal_cave', icon: 'RiVipDiamondLine', color: '#87CEEB' },
+    { key: 'rainbow_bridge', icon: 'RiRainbowLine', color: '#9370DB' },
+    { key: 'chocolate_factory', icon: 'RiBuilding2Line', color: '#8B4513' }
   ],
   character: [
-    { key: 'princess_dragon', icon: 'RiVipCrownLine' },
-    { key: 'dwarves', icon: 'RiUserLine' },
-    { key: 'talking_animals', icon: 'RiChat1Line' },
-    { key: 'wizards', icon: 'RiMagicLine' },
-    { key: 'robots', icon: 'RiRobotLine' },
-    { key: 'knight_fairy', icon: 'RiSwordLine' },
-    { key: 'flying_unicorn', icon: 'RiSparkling2Line' },
-    { key: 'funny_troll', icon: 'RiGamepadLine' },
-    { key: 'magical_cat', icon: 'RiHeartLine' },
-    { key: 'little_astronaut', icon: 'RiUserLine' }
+    { key: 'princess_dragon', icon: 'RiVipCrownLine', color: '#FFD700' },
+    { key: 'dwarves', icon: 'RiUserLine', color: '#1E90FF' },
+    { key: 'talking_animals', icon: 'RiChat1Line', color: '#32CD32' },
+    { key: 'wizards', icon: 'RiMagicLine', color: '#9370DB' },
+    { key: 'robots', icon: 'RiRobotLine', color: '#696969' },
+    { key: 'knight_fairy', icon: 'RiSwordLine', color: '#C0C0C0' },
+    { key: 'flying_unicorn', icon: 'RiSparkling2Line', color: '#FF69B4' },
+    { key: 'funny_troll', icon: 'RiGamepadLine', color: '#FF0000' },
+    { key: 'magical_cat', icon: 'RiHeartLine', color: '#FF0000' },
+    { key: 'little_astronaut', icon: 'RiUserLine', color: '#1E90FF' }
   ],
   mood: [
-    { key: 'happy', icon: 'RiEmotionHappyLine' },
-    { key: 'adventurous', icon: 'RiMapPinLine' },
-    { key: 'mysterious', icon: 'RiEyeLine' },
-    { key: 'magical', icon: 'RiSparklingLine' },
-    { key: 'friendly', icon: 'RiTeamLine' },
-    { key: 'romantic', icon: 'RiHeartLine' },
-    { key: 'exciting', icon: 'RiFlashlightLine' },
-    { key: 'full_of_magic', icon: 'RiFilmLine' }
+    { key: 'happy', icon: 'RiEmotionHappyLine', color: '#FFD700' },
+    { key: 'adventurous', icon: 'RiMapPinLine', color: '#32CD32' },
+    { key: 'mysterious', icon: 'RiEyeLine', color: '#9370DB' },
+    { key: 'magical', icon: 'RiSparklingLine', color: '#FFD700' },
+    { key: 'friendly', icon: 'RiTeamLine', color: '#1E90FF' },
+    { key: 'romantic', icon: 'RiHeartLine', color: '#FF0000' },
+    { key: 'exciting', icon: 'RiFlashlightLine', color: '#FFFFFF' },
+    { key: 'full_of_magic', icon: 'RiFilmLine', color: '#9370DB' }
   ]
 };
 
@@ -320,6 +320,7 @@ interface StoryOption {
   value: string;
   icon: string;
   text: string;
+  color: string;
 }
 
 interface StoryCategory {
@@ -331,6 +332,99 @@ interface StoryCategory {
 
 type StoryOptionsType = Record<string, StoryCategory>;
 
+export const LOADING_TRANSLATIONS: Record<string, { loadingMessages: string[]; creatingStory: string }> = {
+  lt: {
+    loadingMessages: [
+      "Renkamos idėjos... ✨",
+      "Mezgama istorija... 🧶",
+      "Kuriami veikėjai... 👥",
+      "Piešiami vaizdai... 🎨",
+      "Dėliojami žodžiai... 📝",
+      "Beriami burtai... 🪄",
+      "Pridedama magijos... ✨",
+      "Tikrinama gramatika... 📚",
+      "Puošiama istorija... 🎭",
+      "Baigiami paskutiniai potėpiai... 🖌️"
+    ],
+    creatingStory: 'Kuriama pasaka...'
+  },
+  en: {
+    loadingMessages: [
+      "Gathering ideas... ✨",
+      "Weaving the story... 🧶",
+      "Creating characters... 👥",
+      "Painting images... 🎨",
+      "Arranging words... 📝",
+      "Casting spells... 🪄",
+      "Adding magic... ✨",
+      "Checking grammar... 📚",
+      "Decorating the story... 🎭",
+      "Finishing final touches... 🖌️"
+    ],
+    creatingStory: 'Creating story...'
+  },
+  es: {
+    loadingMessages: [
+      "Reuniendo ideas... ✨",
+      "Tejiendo la historia... 🧶",
+      "Creando personajes... 👥",
+      "Pintando imágenes... 🎨",
+      "Organizando palabras... 📝",
+      "Lanzando hechizos... 🪄",
+      "Agregando magia... ✨",
+      "Revisando gramática... 📚",
+      "Decorando la historia... 🎭",
+      "Terminando toques finales... 🖌️"
+    ],
+    creatingStory: 'Creando cuento...'
+  },
+  fr: {
+    loadingMessages: [
+      "Rassemblant les idées... ✨",
+      "Tissant l'histoire... 🧶",
+      "Créant les personnages... 👥",
+      "Peignant les images... 🎨",
+      "Organisant les mots... 📝",
+      "Lançant des sorts... 🪄",
+      "Ajoutant de la magie... ✨",
+      "Vérifiant la grammaire... 📚",
+      "Décorant l'histoire... 🎭",
+      "Terminant les touches finales... 🖌️"
+    ],
+    creatingStory: 'Créant l\'histoire...'
+  },
+  de: {
+    loadingMessages: [
+      "Ideen sammeln... ✨",
+      "Die Geschichte weben... 🧶",
+      "Charaktere erstellen... 👥",
+      "Bilder malen... 🎨",
+      "Wörter anordnen... 📝",
+      "Zauber wirken... 🪄",
+      "Magie hinzufügen... ✨",
+      "Grammatik überprüfen... 📚",
+      "Die Geschichte dekorieren... 🎭",
+      "Letzte Feinheiten abschließen... 🖌️"
+    ],
+    creatingStory: 'Geschichte erstellen...'
+  },
+  it: {
+    loadingMessages: [
+      "Raccogliendo idee... ✨",
+      "Tessendo la storia... 🧶",
+      "Creando personaggi... 👥",
+      "Dipingendo immagini... 🎨",
+      "Organizzando parole... 📝",
+      "Lanciando incantesimi... 🪄",
+      "Aggiungendo magia... ✨",
+      "Controllando grammatica... 📚",
+      "Decorando la storia... 🎭",
+      "Completando i tocchi finali... 🖌️"
+    ],
+    creatingStory: 'Creando storia...'
+  }
+};
+
 // Generate STORY_OPTIONS dynamically
 export const STORY_OPTIONS: StoryOptionsType = Object.keys(TRANSLATIONS).reduce((acc, lang) => {
   const langKey = lang as keyof typeof TRANSLATIONS;
@@ -338,22 +432,26 @@ export const STORY_OPTIONS: StoryOptionsType = Object.keys(TRANSLATIONS).reduce(
     time: STORY_BASE.time.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
       icon: item.icon,
-      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
+      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
+      color: item.color
     })),
     place: STORY_BASE.place.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
       icon: item.icon,
-      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
+      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
+      color: item.color
     })),
     character: STORY_BASE.character.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
       icon: item.icon,
-      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
+      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
+      color: item.color
     })),
     mood: STORY_BASE.mood.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
       icon: item.icon,
-      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
+      text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
+      color: item.color
     }))
   };
   return acc;
