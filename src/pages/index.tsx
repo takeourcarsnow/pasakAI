@@ -34,6 +34,20 @@ export default function Home({ initialLanguage }: { initialLanguage: string }) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showStory, setShowStory] = useState<boolean>(false);
   const [showShareButtons, setShowShareButtons] = useState<boolean>(false);
+  const [cooldownTime, setCooldownTime] = useState<number>(0);
+
+  // Cooldown timer effect
+  React.useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (cooldownTime > 0) {
+      interval = setInterval(() => {
+        setCooldownTime(prev => prev - 1);
+      }, 1000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [cooldownTime]);
 
   const updateSelection = useCallback((key: keyof StorySelections, value: string) => {
     setSelections(prev => ({ ...prev, [key]: value }));
@@ -129,6 +143,14 @@ const UI_TRANSLATIONS = {
     fr: 'Créer l\'histoire ✨',
     de: 'Geschichte erstellen ✨',
     it: 'Crea storia ✨'
+  },
+  cooldownMessage: {
+    lt: '⏳ {time}',
+    en: '⏳ {time}',
+    es: '⏳ {time}',
+    fr: '⏳ {time}',
+    de: '⏳ {time}',
+    it: '⏳ {time}'
   },
   storyReady: {
     lt: '✨ Tavo pasaka paruošta!',
@@ -265,6 +287,16 @@ const ERROR_MESSAGES = {
     return typeof value === 'string' ? value : key;
   };
 
+  // Helper function to get adaptive font size based on text length
+  const getAdaptiveFontSize = (text: string): string => {
+    const length = text.length;
+    if (length > 105) return '0.8rem';
+    if (length > 95) return '0.85rem';
+    if (length > 85) return '0.9rem';
+    if (length > 75) return '0.95rem';
+    return '1rem';
+  };
+
   const generateStory = async () => {
     // Validate selections
     const required = ['time', 'place', 'characters', 'mood'] as const;
@@ -279,6 +311,7 @@ const ERROR_MESSAGES = {
     setIsLoading(true);
     setShowStory(false);
     setShowShareButtons(false);
+    setCooldownTime(30); // Start 30 second cooldown
 
     try {
       const response = await fetch('/api/generate-story', {
@@ -358,8 +391,8 @@ const ERROR_MESSAGES = {
 
       <div className="hero">
         <h1>{getUIText('title')}</h1>
-        <p className="tagline">{getUIText('tagline')}</p>
-        <p className="hero-description">{getUIText('description')}</p>
+        <p className="tagline" style={{ fontSize: getAdaptiveFontSize(getUIText('tagline')) }}>{getUIText('tagline')}</p>
+        <p className="hero-description" style={{ fontSize: getAdaptiveFontSize(getUIText('description')) }}>{getUIText('description')}</p>
       </div>
 
       <div className="container">
@@ -413,12 +446,17 @@ const ERROR_MESSAGES = {
           />
 
           <button 
-            className="generate-button" 
+            className={`generate-button ${cooldownTime > 0 ? 'cooldown' : ''}`} 
             onClick={generateStory}
-            disabled={isLoading}
+            disabled={isLoading || cooldownTime > 0}
           >
             <span className="button-text">
-              {isLoading ? getUIText('creating') : getUIText('createButton')}
+              {isLoading 
+                ? getUIText('creating') 
+                : cooldownTime > 0 
+                  ? <><span className="cooldown-icon">⏳</span> <span className="cooldown-time">{cooldownTime}</span></>
+                  : getUIText('createButton')
+              }
             </span>
             <div className="button-magic" aria-hidden="true"></div>
           </button>
@@ -442,13 +480,6 @@ const ERROR_MESSAGES = {
                 story={story} 
                 visible={showShareButtons}
               />
-              <button 
-                className="generate-button" 
-                onClick={resetStory}
-                style={{ marginTop: '2rem' }}
-              >
-                <span className="button-text">{getUIText('createNew')}</span>
-              </button>
             </div>
           )}
         </div>

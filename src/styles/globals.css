@@ -17,6 +17,7 @@
     padding: 0;
     box-sizing: border-box;
     backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -120,7 +121,7 @@ body.light-theme {
 }
 
 .hero-description {
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
     font-size: 1rem;
     opacity: 0.9;
@@ -177,6 +178,18 @@ body.light-theme {
     justify-content: center;
     cursor: pointer;
     text-align: center;
+}
+
+.choice-card span {
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.choice-card span::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .choice-card::after,
@@ -317,6 +330,25 @@ body.light-theme {
     box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
 }
 
+.generate-button.cooldown {
+    background: linear-gradient(135deg, #666 0%, #888 50%, #999 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.generate-button.cooldown .cooldown-icon {
+    animation: hourglassRotate 3s linear infinite;
+    display: inline-block;
+    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.3));
+}
+
+.generate-button.cooldown .cooldown-time {
+    animation: countdownPulse 2s ease-in-out infinite;
+    display: inline-block;
+    font-weight: normal;
+    color: #FFD700;
+    opacity: 0.9;
+}
+
 .share-btn {
     border: none;
     border-radius: 12px;
@@ -410,7 +442,6 @@ body.light-theme {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     white-space: pre-wrap;
-    text-align: center;
 }
 
 .story-paragraph {
@@ -626,7 +657,7 @@ footer {
     height: 1.2em;
     background-color: currentColor;
     margin-left: 2px;
-    animation: blink 1s infinite;
+    animation: blink 1s step-end infinite;
     vertical-align: middle;
     will-change: opacity;
 }
@@ -702,6 +733,16 @@ footer {
     }
 }
 
+@keyframes hourglassRotate {
+    0% { transform: rotate(0deg) var(--gpu-transform); }
+    100% { transform: rotate(360deg) var(--gpu-transform); }
+}
+
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1) var(--gpu-transform); }
+    50% { transform: scale(1.05) var(--gpu-transform); }
+}
+
 /* Background effects */
 .bg-gradient {
     position: fixed;
@@ -740,6 +781,7 @@ footer {
     .hero-description {
         margin: 0 15px;
         padding: 1rem;
+        max-width: 500px;
     }
 
     .social-links {
@@ -747,9 +789,14 @@ footer {
         padding: 15px;
     }
 
+    .swiper {
+        mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
     .share-buttons {
-        flex-direction: column;
-        align-items: center;
+        gap: 0.5rem;
+        padding: 0 10px;
     }
 
     .share-btn {
@@ -845,13 +892,6 @@ footer {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-}
-
-/* Typewriter cursor animation */
-.typing-cursor {
-    animation: blink 1s step-end infinite;
-    color: var(--color-primary);
-    font-weight: bold;
 }
 
 @keyframes blink {

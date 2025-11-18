@@ -104,8 +104,8 @@ export const SettingSwiper: React.FC<SettingSwiperProps> = ({
       <div className={className}>
         <Swiper
           modules={[]}
-          slidesPerView={1}
-          spaceBetween={20}
+          slidesPerView={2.5}
+          spaceBetween={15}
           centeredSlides={true}
           initialSlide={initialSlide}
           breakpoints={{

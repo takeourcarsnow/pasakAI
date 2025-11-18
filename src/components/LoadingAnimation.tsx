@@ -6,23 +6,14 @@ interface LoadingAnimationProps {
   language: string;
 }
 
-const LOADING_MESSAGES = [
-  "Renkamos idėjos... ✨",
-  "Mezgama istorija... 🧶",
-  "Kuriami veikėjai... 👥",
-  "Piešiami vaizdai... 🎨",
-  "Dėliojami žodžiai... 📝",
-  "Beriami burtai... 🪄",
-  "Pridedama magijos... ✨",
-  "Tikrinama gramatika... 📚",
-  "Puošiama istorija... 🎭",
-  "Baigiami paskutiniai potėpiai... 🖌️"
-];
-
 export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible, language }) => {
   const loadingData = LOADING_TRANSLATIONS[language as keyof typeof LOADING_TRANSLATIONS] || LOADING_TRANSLATIONS.en;
   const [currentMessage, setCurrentMessage] = useState(loadingData.loadingMessages[0]);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  React.useEffect(() => {
+    setCurrentMessage(loadingData.loadingMessages[0]);
+  }, [language, loadingData.loadingMessages]);
 
   React.useEffect(() => {
     if (visible) {
@@ -62,7 +53,7 @@ export const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ visible, lan
         clearInterval(intervalRef.current);
       }
     };
-  }, [visible]);
+  }, [visible, language]);
 
   return (
     <div className={`loading-animation ${visible ? 'visible' : ''}`}>

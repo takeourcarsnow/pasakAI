@@ -66,7 +66,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   return (
     <div id="story-text" style={{ whiteSpace: 'pre-wrap', lineHeight: 1.8 }}>
       {displayText}
-      {isTyping && <span className="typing-cursor">|</span>}
+      {isTyping && <span className="typing-cursor"></span>}
     </div>
   );
 };
