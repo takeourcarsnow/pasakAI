@@ -1,61 +1,61 @@
 export const LANGUAGES = [
-  { value: 'lt', emoji: 'https://flagcdn.com/w40/lt.png', text: 'Lietuvių' },
-  { value: 'en', emoji: 'https://flagcdn.com/w40/us.png', text: 'English' },
-  { value: 'es', emoji: 'https://flagcdn.com/w40/es.png', text: 'Español' },
-  { value: 'fr', emoji: 'https://flagcdn.com/w40/fr.png', text: 'Français' },
-  { value: 'de', emoji: 'https://flagcdn.com/w40/de.png', text: 'Deutsch' },
-  { value: 'it', emoji: 'https://flagcdn.com/w40/it.png', text: 'Italiano' }
+  { value: 'lt', icon: 'https://flagcdn.com/w40/lt.png', text: 'Lietuvių' },
+  { value: 'en', icon: 'https://flagcdn.com/w40/us.png', text: 'English' },
+  { value: 'es', icon: 'https://flagcdn.com/w40/es.png', text: 'Español' },
+  { value: 'fr', icon: 'https://flagcdn.com/w40/fr.png', text: 'Français' },
+  { value: 'de', icon: 'https://flagcdn.com/w40/de.png', text: 'Deutsch' },
+  { value: 'it', icon: 'https://flagcdn.com/w40/it.png', text: 'Italiano' }
 ];
 
-// Base structure with keys and emojis
+// Base structure with keys and icons
 const STORY_BASE = {
   time: [
-    { key: 'once_upon_a_time', emoji: '📜' },
-    { key: 'future', emoji: '🚀' },
-    { key: 'today', emoji: '📱' },
-    { key: 'winter', emoji: '❄️' },
-    { key: 'summer', emoji: '☀️' },
-    { key: 'mysterious_night', emoji: '🌙' },
-    { key: 'hundred_years_ago', emoji: '⏳' },
-    { key: 'dream_kingdom', emoji: '💫' },
-    { key: 'sunny_morning', emoji: '🌅' },
-    { key: 'autumn_afternoon', emoji: '🍂' },
-    { key: 'moonlight', emoji: '🌕' },
-    { key: 'christmas', emoji: '🎄' }
+    { key: 'once_upon_a_time', icon: 'RiScrollToBottomLine' },
+    { key: 'future', icon: 'RiRocketLine' },
+    { key: 'today', icon: 'RiSmartphoneLine' },
+    { key: 'winter', icon: 'RiSnowyLine' },
+    { key: 'summer', icon: 'RiSunLine' },
+    { key: 'mysterious_night', icon: 'RiMoonLine' },
+    { key: 'hundred_years_ago', icon: 'RiTimeLine' },
+    { key: 'dream_kingdom', icon: 'RiSparklingLine' },
+    { key: 'sunny_morning', icon: 'RiSunLine' },
+    { key: 'autumn_afternoon', icon: 'RiLeafLine' },
+    { key: 'moonlight', icon: 'RiMoonLine' },
+    { key: 'christmas', icon: 'RiTreeLine' }
   ],
   place: [
-    { key: 'magical_forest', emoji: '🌳' },
-    { key: 'castle', emoji: '🏰' },
-    { key: 'space', emoji: '🌠' },
-    { key: 'underwater', emoji: '🌊' },
-    { key: 'cloud_kingdom', emoji: '☁️' },
-    { key: 'candy_land', emoji: '🍬' },
-    { key: 'underground_maze', emoji: '🗝️' },
-    { key: 'crystal_cave', emoji: '💎' },
-    { key: 'rainbow_bridge', emoji: '🌈' },
-    { key: 'chocolate_factory', emoji: '🍫' }
+    { key: 'magical_forest', icon: 'RiTreeLine' },
+    { key: 'castle', icon: 'RiBuildingLine' },
+    { key: 'space', icon: 'RiStarLine' },
+    { key: 'underwater', icon: 'RiWaterPercentLine' },
+    { key: 'cloud_kingdom', icon: 'RiCloudLine' },
+    { key: 'candy_land', icon: 'RiCakeLine' },
+    { key: 'underground_maze', icon: 'RiKeyLine' },
+    { key: 'crystal_cave', icon: 'RiVipDiamondLine' },
+    { key: 'rainbow_bridge', icon: 'RiRainbowLine' },
+    { key: 'chocolate_factory', icon: 'RiBuilding2Line' }
   ],
   character: [
-    { key: 'princess_dragon', emoji: '👸🐲' },
-    { key: 'dwarves', emoji: '🧝' },
-    { key: 'talking_animals', emoji: '🦊🦁' },
-    { key: 'wizards', emoji: '🧙‍♂️' },
-    { key: 'robots', emoji: '🤖' },
-    { key: 'knight_fairy', emoji: '⚔️🧚' },
-    { key: 'flying_unicorn', emoji: '🦄✨' },
-    { key: 'funny_troll', emoji: '👾' },
-    { key: 'magical_cat', emoji: '🐱✨' },
-    { key: 'little_astronaut', emoji: '👨‍🚀' }
+    { key: 'princess_dragon', icon: 'RiVipCrownLine' },
+    { key: 'dwarves', icon: 'RiUserLine' },
+    { key: 'talking_animals', icon: 'RiChat1Line' },
+    { key: 'wizards', icon: 'RiMagicLine' },
+    { key: 'robots', icon: 'RiRobotLine' },
+    { key: 'knight_fairy', icon: 'RiSwordLine' },
+    { key: 'flying_unicorn', icon: 'RiSparkling2Line' },
+    { key: 'funny_troll', icon: 'RiGamepadLine' },
+    { key: 'magical_cat', icon: 'RiHeartLine' },
+    { key: 'little_astronaut', icon: 'RiUserLine' }
   ],
   mood: [
-    { key: 'happy', emoji: '😊' },
-    { key: 'adventurous', emoji: '🗺️' },
-    { key: 'mysterious', emoji: '🔮' },
-    { key: 'magical', emoji: '✨' },
-    { key: 'friendly', emoji: '🤝' },
-    { key: 'romantic', emoji: '💝' },
-    { key: 'exciting', emoji: '💫' },
-    { key: 'full_of_magic', emoji: '🎭' }
+    { key: 'happy', icon: 'RiEmotionHappyLine' },
+    { key: 'adventurous', icon: 'RiMapPinLine' },
+    { key: 'mysterious', icon: 'RiEyeLine' },
+    { key: 'magical', icon: 'RiSparklingLine' },
+    { key: 'friendly', icon: 'RiTeamLine' },
+    { key: 'romantic', icon: 'RiHeartLine' },
+    { key: 'exciting', icon: 'RiFlashlightLine' },
+    { key: 'full_of_magic', icon: 'RiFilmLine' }
   ]
 };
 
@@ -318,7 +318,7 @@ const TRANSLATIONS = {
 // Type definitions
 interface StoryOption {
   value: string;
-  emoji: string;
+  icon: string;
   text: string;
 }
 
@@ -337,22 +337,22 @@ export const STORY_OPTIONS: StoryOptionsType = Object.keys(TRANSLATIONS).reduce(
   acc[langKey] = {
     time: STORY_BASE.time.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
-      emoji: item.emoji,
+      icon: item.icon,
       text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
     })),
     place: STORY_BASE.place.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
-      emoji: item.emoji,
+      icon: item.icon,
       text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
     })),
     character: STORY_BASE.character.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
-      emoji: item.emoji,
+      icon: item.icon,
       text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
     })),
     mood: STORY_BASE.mood.map(item => ({
       value: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt],
-      emoji: item.emoji,
+      icon: item.icon,
       text: TRANSLATIONS[langKey][item.key as keyof typeof TRANSLATIONS.lt]
     }))
   };

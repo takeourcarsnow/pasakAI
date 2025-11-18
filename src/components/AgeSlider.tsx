@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiParentLine, RiBookOpenLine, RiBookLine, RiCrosshairLine } from 'react-icons/ri';
 
 interface AgeSliderProps {
   value: string;
@@ -32,7 +33,7 @@ export const AgeSlider: React.FC<AgeSliderProps> = ({ value, onChange, title, ra
         />
         <div className="age-description" id="age-description">
           <span className="age-emoji">
-            {value === '1' ? '👶' : value === '2' ? '📖' : value === '3' ? '📚' : '🎯'}
+            {value === '1' ? <RiParentLine size={24} /> : value === '2' ? <RiBookOpenLine size={24} /> : value === '3' ? <RiBookLine size={24} /> : <RiCrosshairLine size={24} />}
           </span>
           <span className="age-text">{currentRange}</span>
         </div>

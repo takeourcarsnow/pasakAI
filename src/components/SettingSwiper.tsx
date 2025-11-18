@@ -3,25 +3,41 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
+import * as Icons from 'react-icons/ri';
+import { RiWaterPercentLine, RiVipDiamondLine, RiHeartLine, RiVipCrownLine, RiTeamLine } from 'react-icons/ri';
 
 interface ChoiceCardProps {
-  emoji: string;
+  icon: string;
   text: string;
   onClick?: () => void;
 }
 
-const ChoiceCard: React.FC<ChoiceCardProps> = ({ emoji, text, onClick }) => (
-  <div className="choice-card" onClick={onClick}>
-    <div className="emoji">
-      {emoji.startsWith('http') ? <Image src={emoji} alt={text} width={50} height={50} /> : emoji}
+const ChoiceCard: React.FC<ChoiceCardProps> = ({ icon, text, onClick }) => {
+  let IconComponent = Icons[icon as keyof typeof Icons] as React.ComponentType<{ size?: number }>;
+  if (icon === 'RiWaterPercentLine') {
+    IconComponent = RiWaterPercentLine;
+  } else if (icon === 'RiVipDiamondLine') {
+    IconComponent = RiVipDiamondLine;
+  } else if (icon === 'RiHeartLine') {
+    IconComponent = RiHeartLine;
+  } else if (icon === 'RiVipCrownLine') {
+    IconComponent = RiVipCrownLine;
+  } else if (icon === 'RiTeamLine') {
+    IconComponent = RiTeamLine;
+  }
+  return (
+    <div className="choice-card" onClick={onClick}>
+      <div className="emoji">
+        {icon.startsWith('http') ? <Image src={icon} alt={text} width={50} height={50} /> : IconComponent ? <IconComponent size={50} /> : icon}
+      </div>
+      <span>{text}</span>
     </div>
-    <span>{text}</span>
-  </div>
-);
+  );
+};
 
 interface SettingSwiperProps {
   title: string;
-  options: Array<{ value: string; emoji: string; text: string }>;
+  options: Array<{ value: string; icon: string; text: string }>;
   onSelectionChange: (value: string) => void;
   className: string;
 }
@@ -101,7 +117,7 @@ export const SettingSwiper: React.FC<SettingSwiperProps> = ({
         >
           {options.map((option, index) => (
             <SwiperSlide key={index} data-value={option.value}>
-              <ChoiceCard emoji={option.emoji} text={option.text} onClick={() => handleCardClick(index)} />
+              <ChoiceCard icon={option.icon} text={option.text} onClick={() => handleCardClick(index)} />
             </SwiperSlide>
           ))}
         </Swiper>

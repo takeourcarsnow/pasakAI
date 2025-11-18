@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { RiSunLine, RiMoonLine } from 'react-icons/ri';
 
 export const ThemeToggle: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -20,8 +21,8 @@ export const ThemeToggle: React.FC = () => {
   return (
     <div className="theme-switch">
       <button onClick={toggleTheme} aria-label="Toggle theme">
-        <span className="day-icon" aria-hidden="true">☀️</span>
-        <span className="night-icon" aria-hidden="true">🌙</span>
+        <span className="day-icon" aria-hidden="true"><RiSunLine size={24} /></span>
+        <span className="night-icon" aria-hidden="true"><RiMoonLine size={24} /></span>
       </button>
     </div>
   );
