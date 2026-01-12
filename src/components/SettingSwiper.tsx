@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 import type { Swiper as SwiperType } from 'swiper';
 import Image from 'next/image';
 import * as Icons from 'react-icons/ri';
